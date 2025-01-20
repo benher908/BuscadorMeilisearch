@@ -5,7 +5,7 @@ import Head from "next/head";
 import { useSearch } from "./hook/useSearch";
 
 export default function Home() {
-  const {searchResult,searchMovies}=useSearch();
+  const {searchResult,searchMovies,prevPage,nextPage,page}=useSearch();
   return (
     <div className={styles.container}>
       <Head>
@@ -29,14 +29,17 @@ export default function Home() {
                   width={200}
                   height={300}
                 />
+                <h3>{resource.title}</h3>
+                <h4>{resource.genres}</h4>
+                <p>{resource.overview ? resource.overview.substring(0, 150) : "Sin descripción"}</p>
  
               </div>
             ))}
           </div>
-
         </div>
       </main>
 
     </div>
+    
   );
 }
